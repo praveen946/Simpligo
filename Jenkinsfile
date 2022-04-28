@@ -17,6 +17,14 @@ pipeline {
     }
 	
     stages{
+	
+		stage('Maven Install'){
+		
+			steps{
+		
+				sh 'sudo chmod -R ugo+rw /usr/local/maven-3.8.5'
+			}
+		}
         
         stage('BUILD'){
             steps {
