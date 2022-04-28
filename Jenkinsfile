@@ -8,9 +8,14 @@ stages {
 
     steps{
 
-    	sh 'echo "Hello" '
+    	sh 'echo "Build" '
+
 	}
-     }
+     stage{
+
+       sh 'echo "sonar" '
+       }
+     }	
   }
 }
 
