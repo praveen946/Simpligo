@@ -22,7 +22,7 @@ pipeline {
 		
 			steps{
 		
-				sh 'sudo chmod -R ugo+rw /usr/local/maven-3.8.5'
+				sh 'chmod -R ugo+rw /usr/local/maven-3.8.5'
 			}
 		}
         
