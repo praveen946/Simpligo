@@ -17,7 +17,7 @@ stages {
 
      steps{
      
-       sh 'echo "sonar" '
+       sh 'echo "SonarQube" '
        }
      }
   }
