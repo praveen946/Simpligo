@@ -13,7 +13,7 @@ stages {
 	}
 
 	}
-     stage{
+     stage('Sonar'){
 
      steps{
      
