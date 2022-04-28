@@ -17,7 +17,7 @@ stages {
 
      steps{
      
-       sh 'echo "SonarQube" '
+       sh 'echo "SonarQube Test Poll SCM" '
        }
      }
   }
