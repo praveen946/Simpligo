@@ -11,11 +11,15 @@ stages {
     	sh 'echo "Build" '
 
 	}
+
+	}
      stage{
 
+     steps{
+     
        sh 'echo "sonar" '
        }
-     }	
+     }
   }
 }
 
