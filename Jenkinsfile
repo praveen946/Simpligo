@@ -11,24 +11,18 @@ pipeline {
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "172.31.40.209:8081"
         NEXUS_REPOSITORY = "vprofile-release"
-	NEXUS_REPO_ID    = "vprofile-release"
+		NEXUS_REPO_ID    = "vprofile-release"
         NEXUS_CREDENTIAL_ID = "nexuslogin"
         ARTVERSION = "${env.BUILD_ID}"
     }
 	
     stages{
 	
-		stage('Maven Install'){
-		
-			steps{
-		
-				sh 'chmod -R ugo+rw /usr/local/maven-3.8.5'
-			}
-		}
+	
         
         stage('BUILD'){
             steps {
-                sh 'mvn clean install -DskipTests'
+                sh '/var/jenkins_home/maven/apache-maven-3.6.3/bin/mvn clean install -DskipTests'
             }
             post {
                 success {
@@ -40,19 +34,19 @@ pipeline {
 
 	stage('UNIT TEST'){
             steps {
-                sh 'mvn test'
+                sh '/var/jenkins_home/maven/apache-maven-3.6.3/bin/mvn test'
             }
         }
 
 	stage('INTEGRATION TEST'){
             steps {
-                sh 'mvn verify -DskipUnitTests'
+                sh '/var/jenkins_home/maven/apache-maven-3.6.3/bin/mvn verify -DskipUnitTests'
             }
         }
 		
         stage ('CODE ANALYSIS WITH CHECKSTYLE'){
             steps {
-                sh 'mvn checkstyle:checkstyle'
+                sh '/var/jenkins_home/maven/apache-maven-3.6.3/bin/mvn checkstyle:checkstyle'
             }
             post {
                 success {
